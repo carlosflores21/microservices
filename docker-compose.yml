@@ -1,0 +1,19 @@
+version: '3'
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "3000:3000"
+    depends_on:
+      - public-service
+      - private-service
+
+  public-service:
+    build: ./public-service
+    ports:
+      - "3001:3001"
+
+  private-service:
+    build: ./private-service
+    ports:
+      - "3002:3002"
